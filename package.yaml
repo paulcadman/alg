@@ -1,0 +1,64 @@
+name:                algorithms
+version:             0.1.0.0
+github:              "paulcadman/algorithms"
+license:             BSD3
+author:              "Paul Cadman"
+maintainer:          "pcadman@gmail.com"
+copyright:           "Copyright (c) Paul Cadman"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/paulcadman/algorithms#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- containers
+- text
+- array
+
+
+default-extensions:
+  # Deriving extensions
+  - GeneralizedNewtypeDeriving
+  - DeriveGeneric
+
+  # Misc extensions
+  - OverloadedStrings
+
+library:
+  source-dirs: src
+
+executables:
+  algorithms-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - algorithms
+
+tests:
+  algorithms-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - algorithms
+    - tasty
+    - tasty-hunit
+    - tasty-th
+    - HUnit
