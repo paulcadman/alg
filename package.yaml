@@ -62,8 +62,8 @@ tests:
     - tasty-hunit
     - tasty-th
     - HUnit
-    - criterion
 
+benchmarks:
   algorithms-perf-test:
     main:                Perf.hs
     source-dirs:         perf-test
