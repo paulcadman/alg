@@ -62,3 +62,15 @@ tests:
     - tasty-hunit
     - tasty-th
     - HUnit
+    - criterion
+
+  algorithms-perf-test:
+    main:                Perf.hs
+    source-dirs:         perf-test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - algorithms
+    - criterion
